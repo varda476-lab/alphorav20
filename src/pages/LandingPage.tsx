@@ -16,14 +16,14 @@ import { motion } from 'framer-motion';
 const ServiceCard = ({ service, idx }: { service: any; idx: number }) => {
   return (
     <TiltCard>
-      <div className="relative w-full h-full bg-[#03020A]/95 rounded-2xl overflow-hidden min-h-[260px]">
+      <div className="relative w-full h-full bg-[#050508]/95 rounded-2xl overflow-hidden min-h-[260px]">
         {/* Pulsating glow inside when active */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.08 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="absolute inset-0 bg-brand-cyan blur-xl rounded-full"
+          className="absolute inset-0 bg-brand-purple blur-xl rounded-full"
         />
         
         {/* Glowing neon border sweep */}
@@ -35,7 +35,7 @@ const ServiceCard = ({ service, idx }: { service: any; idx: number }) => {
             height="calc(100% - 3px)"
             rx="16"
             fill="none"
-            stroke="#0AFFA7"
+            stroke="#FF3E3E"
             strokeWidth="1.5"
             initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
@@ -132,7 +132,7 @@ export default function LandingPage() {
               WHY ALPHORA
             </span>
             <h2 className="text-[2.5rem] font-display font-extrabold text-white leading-tight">
-              Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-100 to-sky-300">Core Services</span>
+              Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-yellow-250 to-brand-cyan">Core Services</span>
             </h2>
             <p className="text-slate-300 text-sm leading-relaxed">
               We engineer advanced digital operations. Explore our primary development capabilities built for secure execution.

@@ -8,14 +8,14 @@ export default {
     extend: {
       colors: {
         obsidian: {
-          dark: '#03020A',
-          card: '#0b0f19',
-          border: '#1e293b',
+          dark: '#050508',
+          card: '#0c0c12',
+          border: '#24242e',
         },
         brand: {
-          indigo: '#6366f1',
-          purple: '#a855f7',
-          cyan: '#0AFFA7',
+          indigo: '#E11D48',
+          purple: '#FACC15',
+          cyan: '#FF3E3E',
           success: '#10b981',
           warning: '#f59e0b',
         },
@@ -30,10 +30,10 @@ export default {
         '5xl': '3rem',
       },
       boxShadow: {
-        'glow-indigo': '0 0 30px rgba(99, 102, 241, 0.25)',
-        'glow-purple': '0 0 30px rgba(168, 85, 247, 0.25)',
-        'glow-cyan': '0 0 30px rgba(10, 255, 167, 0.25)',
-        'card-dark': '0 8px 32px rgba(0, 0, 0, 0.5)',
+        'glow-indigo': '0 0 30px rgba(225, 29, 72, 0.25)',
+        'glow-purple': '0 0 30px rgba(250, 204, 21, 0.25)',
+        'glow-cyan': '0 0 30px rgba(255, 62, 62, 0.25)',
+        'card-dark': '0 8px 32px rgba(0, 0, 0, 0.65)',
       },
       keyframes: {
         float: {
