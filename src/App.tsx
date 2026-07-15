@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import './index.css';
 
 // Importing Components
 import InteractiveNetworkBackground from './components/InteractiveNetworkBackground';
+import CinematicPreloader from './components/CinematicPreloader';
 
 // Importing Page Components
 import LandingPage from './pages/LandingPage';
@@ -37,8 +39,27 @@ function ScrollToTop() {
 }
 
 function App() {
+  const [showPreloader, setShowPreloader] = useState(false);
+
+  useEffect(() => {
+    const hasSeenPreloader = sessionStorage.getItem('alphora_preloader_seen');
+    if (!hasSeenPreloader) {
+      setShowPreloader(true);
+    }
+  }, []);
+
+  const handlePreloaderComplete = () => {
+    setShowPreloader(false);
+    sessionStorage.setItem('alphora_preloader_seen', 'true');
+  };
+
   return (
     <>
+      <AnimatePresence>
+        {showPreloader && (
+          <CinematicPreloader onComplete={handlePreloaderComplete} />
+        )}
+      </AnimatePresence>
       <ScrollToTop />
       <InteractiveNetworkBackground />
       <Routes>

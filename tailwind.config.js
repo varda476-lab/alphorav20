@@ -8,14 +8,14 @@ export default {
     extend: {
       colors: {
         obsidian: {
-          dark: '#030712',
+          dark: '#03020A',
           card: '#0b0f19',
           border: '#1e293b',
         },
         brand: {
           indigo: '#6366f1',
           purple: '#a855f7',
-          cyan: '#06b6d4',
+          cyan: '#0AFFA7',
           success: '#10b981',
           warning: '#f59e0b',
         },
@@ -32,7 +32,7 @@ export default {
       boxShadow: {
         'glow-indigo': '0 0 30px rgba(99, 102, 241, 0.25)',
         'glow-purple': '0 0 30px rgba(168, 85, 247, 0.25)',
-        'glow-cyan': '0 0 30px rgba(6, 182, 212, 0.25)',
+        'glow-cyan': '0 0 30px rgba(10, 255, 167, 0.25)',
         'card-dark': '0 8px 32px rgba(0, 0, 0, 0.5)',
       },
       keyframes: {
@@ -56,6 +56,21 @@ export default {
           '0%': { opacity: '0', transform: 'scale(0.95)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
         },
+        glitch: {
+          '0%, 100%': { transform: 'translate(0)' },
+          '20%': { transform: 'translate(-2px, 2px)' },
+          '40%': { transform: 'translate(-2px, -2px)' },
+          '60%': { transform: 'translate(2px, 2px)' },
+          '80%': { transform: 'translate(2px, -2px)' },
+        },
+        rotateClockwise: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        rotateCounter: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(-360deg)' },
+        },
       },
       animation: {
         float: 'float 4s ease-in-out infinite',
@@ -63,6 +78,9 @@ export default {
         shimmer: 'shimmer 2s linear infinite',
         fadeUp: 'fadeUp 0.6s ease-out forwards',
         scaleIn: 'scaleIn 0.5s ease-out forwards',
+        glitch: 'glitch 0.3s linear infinite',
+        'rotate-clockwise': 'rotateClockwise 6s linear infinite',
+        'rotate-counter': 'rotateCounter 8s linear infinite',
       },
     },
   },

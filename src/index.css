@@ -11,25 +11,32 @@
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
-    background-color: #030712;
+    background-color: #03020A;
   }
   body {
     font-family: 'Inter', sans-serif;
-    background-color: #030712;
-    color: #f8fafc;
+    background-color: #03020A;
+    color: #FAFBFD;
     overflow-x: hidden;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Outfit', sans-serif;
   }
   p {
-    @apply leading-relaxed text-slate-200;
+    @apply leading-relaxed text-[#FAFBFD];
   }
 }
 
 @layer components {
+  .chromatic-glitch {
+    position: relative;
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.55),
+                 -0.025em -0.05em 0 rgba(0, 255, 0, 0.55),
+                 0.025em 0.05em 0 rgba(0, 0, 255, 0.55);
+    animation: glitch 500ms infinite;
+  }
   .shadow-glow-service {
-    box-shadow: 0 0 15px rgba(124, 58, 237, 0.3);
+    box-shadow: 0 0 15px rgba(10, 255, 167, 0.18);
   }
   .btn-primary-gradient {
     @apply relative overflow-hidden bg-gradient-to-r from-brand-cyan via-brand-indigo to-brand-purple text-white font-bold px-6 py-3 rounded-xl

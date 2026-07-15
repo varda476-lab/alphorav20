@@ -11,6 +11,63 @@ import DeploymentTimeline from '../components/DeploymentTimeline';
 import TiltCard from '../components/TiltCard';
 import { Shield, Sparkles, Server, CheckCircle2, TrendingUp, Cpu, Award, Zap, HeartHandshake, Code, HardDrive, Play, Database, Layers } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
+const ServiceCard = ({ service, idx }: { service: any; idx: number }) => {
+  return (
+    <TiltCard>
+      <div className="relative w-full h-full bg-[#03020A]/95 rounded-2xl overflow-hidden min-h-[260px]">
+        {/* Pulsating glow inside when active */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 0.08 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="absolute inset-0 bg-brand-cyan blur-xl rounded-full"
+        />
+        
+        {/* Glowing neon border sweep */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none rounded-2xl">
+          <motion.rect
+            x="1.5"
+            y="1.5"
+            width="calc(100% - 3px)"
+            height="calc(100% - 3px)"
+            rx="16"
+            fill="none"
+            stroke="#0AFFA7"
+            strokeWidth="1.5"
+            initial={{ pathLength: 0 }}
+            whileInView={{ pathLength: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1.6, ease: "easeInOut" }}
+          />
+        </svg>
+
+        {/* Inner Content Reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ delay: 1.0 + idx * 0.25, duration: 0.6, ease: "easeOut" }}
+          className="glass-card p-8 border border-white/5 space-y-6 text-left h-full flex flex-col justify-between group"
+        >
+          <div className="space-y-4">
+            <div className="p-4 bg-gradient-to-br from-brand-purple/10 to-brand-cyan/10 rounded-2xl w-fit text-brand-cyan group-hover:scale-110 transition-transform duration-300">
+              {service.icon}
+            </div>
+            <h3 className="text-xl font-bold text-white font-display transition-colors group-hover:text-brand-cyan duration-300">
+              {service.title}
+            </h3>
+            <p className="text-xs text-slate-200 leading-relaxed font-normal">
+              {service.desc}
+            </p>
+          </div>
+        </motion.div>
+      </div>
+    </TiltCard>
+  );
+};
 
 export default function LandingPage() {
   const [consoleTrigger, setConsoleTrigger] = useState(0);
@@ -84,21 +141,7 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {coreServices.map((service, idx) => (
-              <TiltCard key={idx}>
-                <div className="glass-card p-8 border border-brand-purple/20 hover:border-brand-cyan/60 transition-all duration-500 shadow-glow-service space-y-6 text-left h-full flex flex-col justify-between group">
-                  <div className="space-y-4">
-                    <div className="p-4 bg-gradient-to-br from-brand-purple/10 to-brand-cyan/10 rounded-2xl w-fit text-brand-cyan group-hover:scale-110 transition-transform duration-300">
-                      {service.icon}
-                    </div>
-                    <h3 className="text-xl font-bold text-white font-display transition-colors group-hover:text-brand-cyan duration-300">
-                      {service.title}
-                    </h3>
-                    <p className="text-xs text-slate-200 leading-relaxed font-normal">
-                      {service.desc}
-                    </p>
-                  </div>
-                </div>
-              </TiltCard>
+              <ServiceCard key={idx} service={service} idx={idx} />
             ))}
           </div>
         </div>

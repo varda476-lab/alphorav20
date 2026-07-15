@@ -4,6 +4,42 @@ import { Cpu, Phone, Sparkles, Terminal, Shield, ArrowRight, Activity, TrendingU
 import { Link } from 'react-router-dom';
 
 export default function CommandCenterHero() {
+  const line1 = "AI Automation & Custom LLMs.";
+  const line2 = "Ready to Scale.";
+  const [typed1, setTyped1] = useState("");
+  const [typed2, setTyped2] = useState("");
+  const [isGlitchingChar, setIsGlitchingChar] = useState(false);
+
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      if (i < line1.length) {
+        setTyped1(line1.substring(0, i + 1));
+        if (Math.random() > 0.7) {
+          setIsGlitchingChar(true);
+          setTimeout(() => setIsGlitchingChar(false), 100);
+        }
+        i++;
+      } else {
+        clearInterval(interval);
+        let j = 0;
+        const intervalLine2 = setInterval(() => {
+          if (j < line2.length) {
+            setTyped2(line2.substring(0, j + 1));
+            if (Math.random() > 0.7) {
+              setIsGlitchingChar(true);
+              setTimeout(() => setIsGlitchingChar(false), 100);
+            }
+            j++;
+          } else {
+            clearInterval(intervalLine2);
+          }
+        }, 80);
+      }
+    }, 70);
+    return () => clearInterval(interval);
+  }, []);
+
   const [savings, setSavings] = useState(148293);
   const [requests, setRequests] = useState(2841129);
   const [gpuLoad, setGpuLoad] = useState(63);
@@ -109,10 +145,18 @@ export default function CommandCenterHero() {
             <Sparkles className="w-3.5 h-3.5 animate-spin" /> Alphora v2.0 Platform Active
           </span>
           
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-white leading-tight">
-            Enterprise AI Engineering <br />
-            <span className="text-gradient-purple-cyan">Ready to Scale.</span>
-          </h1>
+          <div className="h-[96px] sm:h-[130px] lg:h-[160px] flex flex-col justify-center select-none overflow-hidden">
+            <h1 className={`text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-white leading-tight ${isGlitchingChar ? 'chromatic-glitch' : ''}`}>
+              {typed1}
+              {typed1 && <br />}
+              <span className="text-gradient-purple-cyan">{typed2}</span>
+              <motion.span
+                animate={{ opacity: [1, 0, 1] }}
+                transition={{ repeat: Infinity, duration: 0.8 }}
+                className="inline-block w-1.5 h-7 sm:h-9 lg:h-11 bg-brand-cyan ml-1 align-middle"
+              />
+            </h1>
+          </div>
 
           <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl">
             We design and build AI platforms, enterprise software, mobile applications, cloud infrastructure, and intelligent automation that help organizations reduce costs, improve operations, and accelerate growth.
