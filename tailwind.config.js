@@ -8,9 +8,9 @@ export default {
     extend: {
       colors: {
         obsidian: {
-          dark: '#050508',
-          card: '#0c0c12',
-          border: '#24242e',
+          dark: '#020516',
+          card: '#080d24',
+          border: '#161e3d',
         },
         brand: {
           indigo: '#E11D48',

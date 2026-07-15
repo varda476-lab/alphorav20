@@ -90,7 +90,7 @@ export default function CinematicPreloader({ onComplete }: CinematicPreloaderPro
     <motion.div 
       exit={{ opacity: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed inset-0 z-[9999] bg-[#050508] flex flex-col items-center justify-center overflow-hidden select-none"
+      className="fixed inset-0 z-[9999] bg-[#020516] flex flex-col items-center justify-center overflow-hidden select-none"
     >
       {/* Glitch Overlay Effect */}
       {isGlitching && (
@@ -120,7 +120,7 @@ export default function CinematicPreloader({ onComplete }: CinematicPreloaderPro
         <motion.div
           animate={isInitialized ? { scale: 12, filter: 'blur(0px)', opacity: [1, 1, 0] } : { scale: 1 }}
           transition={{ duration: 2.2, ease: 'easeInOut' }}
-          className="w-24 h-24 rounded-full bg-gradient-to-br from-black via-[#050508] to-[#1c0a0a] border border-brand-purple/40 shadow-[0_0_50px_rgba(255,62,62,0.65),inset_0_0_20px_rgba(250,204,21,0.2)] flex items-center justify-center relative z-10"
+          className="w-24 h-24 rounded-full bg-gradient-to-br from-black via-[#020516] to-[#1c0a0a] border border-brand-purple/40 shadow-[0_0_50px_rgba(255,62,62,0.65),inset_0_0_20px_rgba(250,204,21,0.2)] flex items-center justify-center relative z-10"
         >
           {/* Pulsating core */}
           <div className="absolute inset-4 rounded-full bg-black border border-brand-cyan/30 animate-pulse-slow" />

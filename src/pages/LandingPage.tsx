@@ -16,7 +16,7 @@ import { motion } from 'framer-motion';
 const ServiceCard = ({ service, idx }: { service: any; idx: number }) => {
   return (
     <TiltCard>
-      <div className="relative w-full h-full bg-[#050508]/95 rounded-2xl overflow-hidden min-h-[260px]">
+      <div className="relative w-full h-full bg-[#020516]/95 rounded-2xl overflow-hidden min-h-[260px]">
         {/* Pulsating glow inside when active */}
         <motion.div
           initial={{ opacity: 0 }}
