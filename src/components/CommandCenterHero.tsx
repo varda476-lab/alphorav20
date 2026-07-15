@@ -11,33 +11,45 @@ export default function CommandCenterHero() {
   const [isGlitchingChar, setIsGlitchingChar] = useState(false);
 
   useEffect(() => {
-    let i = 0;
-    const interval = setInterval(() => {
-      if (i < line1.length) {
-        setTyped1(line1.substring(0, i + 1));
-        if (Math.random() > 0.7) {
-          setIsGlitchingChar(true);
-          setTimeout(() => setIsGlitchingChar(false), 100);
-        }
-        i++;
-      } else {
-        clearInterval(interval);
-        let j = 0;
-        const intervalLine2 = setInterval(() => {
-          if (j < line2.length) {
-            setTyped2(line2.substring(0, j + 1));
-            if (Math.random() > 0.7) {
-              setIsGlitchingChar(true);
-              setTimeout(() => setIsGlitchingChar(false), 100);
-            }
-            j++;
-          } else {
-            clearInterval(intervalLine2);
+    const hasSeenPreloader = sessionStorage.getItem('alphora_preloader_seen');
+    const delay = hasSeenPreloader ? 100 : 2500;
+    let interval: any;
+    let intervalLine2: any;
+
+    const timeout = setTimeout(() => {
+      let i = 0;
+      interval = setInterval(() => {
+        if (i < line1.length) {
+          setTyped1(line1.substring(0, i + 1));
+          if (Math.random() > 0.7) {
+            setIsGlitchingChar(true);
+            setTimeout(() => setIsGlitchingChar(false), 100);
           }
-        }, 80);
-      }
-    }, 70);
-    return () => clearInterval(interval);
+          i++;
+        } else {
+          clearInterval(interval);
+          let j = 0;
+          intervalLine2 = setInterval(() => {
+            if (j < line2.length) {
+              setTyped2(line2.substring(0, j + 1));
+              if (Math.random() > 0.7) {
+                setIsGlitchingChar(true);
+                setTimeout(() => setIsGlitchingChar(false), 100);
+              }
+              j++;
+            } else {
+              clearInterval(intervalLine2);
+            }
+          }, 80);
+        }
+      }, 70);
+    }, delay);
+
+    return () => {
+      clearTimeout(timeout);
+      if (interval) clearInterval(interval);
+      if (intervalLine2) clearInterval(intervalLine2);
+    };
   }, []);
 
   const [savings, setSavings] = useState(148293);
@@ -145,7 +157,7 @@ export default function CommandCenterHero() {
             <Sparkles className="w-3.5 h-3.5 animate-spin" /> Alphora v2.0 Platform Active
           </span>
           
-          <div className="h-[96px] sm:h-[130px] lg:h-[160px] flex flex-col justify-center select-none overflow-hidden">
+          <div className="min-h-[140px] sm:min-h-[160px] lg:min-h-[185px] flex flex-col justify-center select-none pb-2">
             <h1 className={`text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-white leading-tight ${isGlitchingChar ? 'chromatic-glitch' : ''}`}>
               {typed1}
               {typed1 && <br />}
