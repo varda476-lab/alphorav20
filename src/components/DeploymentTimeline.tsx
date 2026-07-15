@@ -22,7 +22,7 @@ export default function DeploymentTimeline() {
 
   return (
     <div className="space-y-8">
-      <div className="text-xs font-semibold text-gray-400 flex items-center gap-1.5 justify-center">
+      <div className="text-xs font-semibold text-slate-300 flex items-center gap-1.5 justify-center">
         <Activity className="w-4 h-4 text-brand-purple" />
         LIFECYCLE PIPELINE Gateways
       </div>
@@ -47,7 +47,7 @@ export default function DeploymentTimeline() {
                     <Play className="w-2.5 h-2.5" />
                   </div>
                 ) : (
-                  <div className="w-6 h-6 rounded-full bg-obsidian-card border border-obsidian-border text-gray-600 flex items-center justify-center text-[10px] font-mono">
+                  <div className="w-6 h-6 rounded-full bg-obsidian-card border border-obsidian-border text-slate-400 flex items-center justify-center text-[10px] font-mono">
                     {idx + 1}
                   </div>
                 )}
@@ -56,11 +56,11 @@ export default function DeploymentTimeline() {
               {/* Text metadata */}
               <div className="space-y-1 pr-4">
                 <h4 className={`text-sm font-bold ${
-                  isComp ? 'text-brand-success' : isCur ? 'text-brand-indigo' : 'text-gray-400'
+                  isComp ? 'text-brand-success' : isCur ? 'text-brand-indigo' : 'text-slate-300'
                 }`}>
                   {stage.name}
                 </h4>
-                <p className="text-[10px] text-gray-400 leading-relaxed max-w-xs md:mx-auto">
+                <p className="text-[10px] text-slate-200 leading-relaxed max-w-xs md:mx-auto">
                   {stage.desc}
                 </p>
               </div>

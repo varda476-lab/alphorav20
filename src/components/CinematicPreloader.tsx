@@ -87,7 +87,11 @@ export default function CinematicPreloader({ onComplete }: CinematicPreloaderPro
   };
 
   return (
-    <div className="fixed inset-0 z-[9999] bg-[#03020A] flex flex-col items-center justify-center overflow-hidden select-none">
+    <motion.div 
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="fixed inset-0 z-[9999] bg-[#03020A] flex flex-col items-center justify-center overflow-hidden select-none"
+    >
       {/* Glitch Overlay Effect */}
       {isGlitching && (
         <div className="absolute inset-0 bg-[#0AFFA7]/5 z-50 pointer-events-none animate-glitch border-4 border-[#0AFFA7]/20" />
@@ -150,6 +154,6 @@ export default function CinematicPreloader({ onComplete }: CinematicPreloaderPro
           )}
         </AnimatePresence>
       </div>
-    </div>
+    </motion.div>
   );
 }

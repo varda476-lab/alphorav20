@@ -40,7 +40,7 @@ const ServiceCard = ({ service, idx }: { service: any; idx: number }) => {
             initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1.6, ease: "easeInOut" }}
+            transition={{ duration: 1.0, ease: "easeInOut" }}
           />
         </svg>
 

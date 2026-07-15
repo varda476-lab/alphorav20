@@ -97,7 +97,7 @@ export default function TechStack() {
               <div className={`w-14 h-14 rounded-xl flex items-center justify-center font-mono font-extrabold text-sm transition-all duration-300 ${item.techColor} group-hover:scale-110 shadow-inner`}>
                 {item.iconName}
               </div>
-              <div className="text-xs font-bold text-slate-300 group-hover:text-white transition-colors truncate w-full">
+              <div className="text-xs font-bold text-slate-200 group-hover:text-white transition-colors truncate w-full">
                 {item.name}
               </div>
             </motion.div>
